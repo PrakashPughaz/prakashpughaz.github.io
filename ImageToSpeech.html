@@ -5,16 +5,19 @@
   <meta name="viewport" content="width=device-width">
   <title>Image to speech</title>
 </head>
-<body>
-  <div>
-    <button class="myButton" id="start" onclick="start()">Start Video</button>
-  </div>
+<body onload="init();">
+    <h1>Take a snapshot of the current video stream</h1>
+   Click on the Start WebCam button.
+     <p>
+    <button onclick="startWebcam();">Start WebCam</button>
+    <button onclick="stopWebcam();">Stop WebCam</button> 
+       <button onclick="snapshot();">Take Snapshot</button> 
+    </p>
+    <video onclick="snapshot(this);" width=400 height=400 id="video" controls autoplay></video>
+  <p>
 
-  <video id="video" width="480" height="360" class="center" autoplay=true style="display: none;"></video>
-  <canvas id="myCanvas" width="480" height="360" class="center">
-    Your browser does not support the HTML5 canvas tag.
-  </canvas><br/>
-  <footer></footer>
-  <script src="ImageSpeech.js"></script>
-</body>
+        Screenshots : <p>
+      <canvas  id="myCanvas" width="400" height="350"></canvas>  
+  </body>
+  <script src="camera.js"></script>
 </html>
