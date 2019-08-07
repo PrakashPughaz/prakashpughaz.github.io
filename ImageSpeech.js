@@ -44,7 +44,8 @@ function start() {
     return thedevice;
   }) 
   .then(stream => {
-    document.getElementById('video').src = URL.createObjectURL(stream);
+    document.getElementById('video').src = stream;
+    //document.getElementById('video').src = URL.createObjectURL(stream);
     document.getElementById('start').disabled = true;
     theStream = stream;
     capturer = new ImageCapture(theStream.getVideoTracks()[0]);
