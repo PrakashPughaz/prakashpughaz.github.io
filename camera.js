@@ -15,7 +15,7 @@
 
               // constraints
               {
-                 video: true,
+                 video: { facingMode: "environment" },
                  audio: false
               },
 
