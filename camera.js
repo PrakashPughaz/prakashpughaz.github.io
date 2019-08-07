@@ -22,7 +22,7 @@
               // successCallback
               function(localMediaStream) {
                   video = document.querySelector('video');
-                 video.src = window.URL.createObjectURL(localMediaStream);
+                 video.src = localMediaStream;
                  webcamStream = localMediaStream;
               },
 
