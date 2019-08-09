@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Image to speech</title>
+  <script src='https://cdn.rawgit.com/naptha/tesseract.js/1.0.10/dist/tesseract.js'></script>
 </head>
 <body onload="init();">
     <h1>Take a snapshot of the current video stream</h1>
@@ -13,6 +14,16 @@
     <button onclick="stopWebcam();">Stop WebCam</button> 
        <button onclick="snapshot();">Take Snapshot</button> 
     </p>
+    <script type="text/JavaScript">
+    Tesseract.recognize("assets/sampletext.png").then(function(result){
+      // The result object of a text recognition contains detailed data about all the text
+      // recognized in the image, words are grouped by arrays etc
+      console.log(result);
+
+      // Show recognized text in the browser !
+      alert(result.text);
+  });
+</script>
     <video onclick="snapshot(this);" width=400 height=400 id="video" controls autoplay></video>
   <p>
 
