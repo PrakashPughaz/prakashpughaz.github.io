@@ -22,10 +22,10 @@
         var can = document.getElementById('myCanvas');
         var img = new Image();
         img.src = can.toDataURL();
-        console.log(img);
+        //console.log(img);
         console.log(img.src);
         //document.body.appendChild(img);
-        Tesseract.recognize(img).then(function(result){
+        Tesseract.recognize(img.src).then(function(result){
       // The result object of a text recognition contains detailed data about all the text
       // recognized in the image, words are grouped by arrays etc
       console.log(result);
