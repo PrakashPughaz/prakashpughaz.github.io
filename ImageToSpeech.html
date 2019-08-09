@@ -31,7 +31,7 @@
       console.log(result);
       var audio = new Audio();
       var sound = encodeURI(result.text);
-      audio.src ='http://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+sound;
+      audio.src ='https://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+sound;
       audio.play();
 
       // Show recognized text in the browser !
