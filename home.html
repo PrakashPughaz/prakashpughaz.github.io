@@ -86,7 +86,7 @@
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p><button id="speak">SPEAK</button></p>
+        <p><a class="btn btn-primary" href="#" id="speak">SPEAK</button></p>
       </div>
       <div class="well">
         <p>ADS</p>
@@ -102,7 +102,7 @@
 <script type="text/JavaScript">
     $( document ).ready(function() {
       $('#speak').click(function(){
-        console.log('ready');
+          console.log('ready');
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0,0, canvas.width, canvas.height);
