@@ -103,6 +103,8 @@
     $( document ).ready(function() {
       $('#speak').click(function(){
           console.log('ready');
+          var videoControl = document.getElementById('video');
+          videoControl.pause();
         var canvas = document.getElementById("myCanvas");
         var ctx = canvas.getContext('2d');
         ctx.drawImage(video, 0,0, canvas.width, canvas.height);
