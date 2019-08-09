@@ -19,6 +19,12 @@
     <script type="text/JavaScript">
     $( document ).ready(function() {
       $('#text').click(function(){
+        var can = document.getElementById('myCanvas');
+        var img = new Image();
+        img.src = can.toDataURL();
+        console.log(img);
+        console.log(img.src);
+        //document.body.appendChild(img);
         Tesseract.recognize("assets/sampletext.png").then(function(result){
       // The result object of a text recognition contains detailed data about all the text
       // recognized in the image, words are grouped by arrays etc
@@ -36,7 +42,7 @@
   <p>
 
         Screenshots : <p>
-      <canvas  id="myCanvas" width="400" height="350"></canvas>  
+      <canvas id="myCanvas" width="400" height="350"></canvas>  
   </body>
   <script src="camera.js"></script>
 </html>
