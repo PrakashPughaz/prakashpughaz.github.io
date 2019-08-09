@@ -82,10 +82,11 @@
     <div class="col-sm-8 text-left"> 
       <h1>Welcome</h1>
       <video onclick="snapshot(this);" width=400 height=400 id="video" controls autoplay></video>
+      <canvas id="myCanvas" width="400" height="350" hidden></canvas>  
     </div>
     <div class="col-sm-2 sidenav">
       <div class="well">
-        <p>ADS</p>
+        <p><button id="speak">SPEAK</button></p>
       </div>
       <div class="well">
         <p>ADS</p>
@@ -98,5 +99,34 @@
   <p>Footer Text</p>
 </footer>
 <script src="camera.js"></script>
+<script type="text/JavaScript">
+    $( document ).ready(function() {
+      $('#speak').click(function(){
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext('2d');
+        ctx.drawImage(video, 0,0, canvas.width, canvas.height);
+        var can = document.getElementById('myCanvas');
+        var img = new Image();
+        img.src = can.toDataURL();
+        //console.log(img);
+        console.log(img.src);
+        //document.body.appendChild(img);
+        Tesseract.recognize(img.src).then(function(result){
+      // The result object of a text recognition contains detailed data about all the text
+      // recognized in the image, words are grouped by arrays etc
+      console.log(result);
+      var msg = new SpeechSynthesisUtterance(result.text);
+      window.speechSynthesis.speak(msg);
+      //var audio = new Audio();
+      //var sound = encodeURI(result.text);
+      //audio.src ='https://translate.google.com/translate_tts?ie=utf-8&tl=en&q='+sound;
+      //audio.play();
+
+      // Show recognized text in the browser !
+      alert(result.text);
+          });
+      });
+      
+    });
 </body>
 </html>
